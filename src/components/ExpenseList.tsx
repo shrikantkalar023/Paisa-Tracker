@@ -2,7 +2,7 @@ interface Expense {
   id: number;
   description: string;
   amount: number;
-  category: string; //it should be an obj with 2 properties(id & name)
+  category: { id: number; name: string }; //it should be an obj with 2 properties(id & name)
 }
 
 interface Props {
@@ -26,7 +26,7 @@ const ExpenseFilter = ({ expenses, onDelete }: Props) => {
           <tr key={e.id}>
             <td>{e.description}</td>
             <td>{e.amount}</td>
-            <td>{e.category}</td>
+            <td>{e.category.name}</td>
             <td>
               <button
                 type="button"
