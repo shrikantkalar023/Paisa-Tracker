@@ -1,7 +1,7 @@
-import { categories } from "~/pages";
+import { categories } from "~/utils/categories";
 
 interface Props {
-  onSelectCategory: (categoryId: number) => void;
+  onSelectCategory: (category: string) => void;
 }
 
 const ExpenseFilter = ({ onSelectCategory }: Props) => {
@@ -9,12 +9,14 @@ const ExpenseFilter = ({ onSelectCategory }: Props) => {
     <div className="input-group mb-3">
       <select
         className="form-select"
-        onChange={(event) => onSelectCategory(parseInt(event.target.value))}
+        onChange={(event) => onSelectCategory(event.target.value)}
       >
-        <option defaultValue={""}>All Category</option>
+        <option key={""} value={""}>
+          All Categories
+        </option>
         {categories.map((c) => (
-          <option key={c.id} value={c.id}>
-            {c.name}
+          <option key={c} value={c}>
+            {c}
           </option>
         ))}
       </select>
