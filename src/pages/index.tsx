@@ -1,16 +1,15 @@
-import styles from "./index.module.css";
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
+// import Link from "next/link";
 import { useState } from "react";
 import ExpenseFilter from "~/components/ExpenseFilter";
 import ExpenseForm from "~/components/ExpenseForm";
 import ExpenseList from "~/components/ExpenseList";
 
-import { api } from "~/utils/api";
+// import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
   const [expenses, setExpenses] = useState([
     { id: 1, description: "dummy1", amount: 1, category: "Utilities" },
@@ -33,7 +32,8 @@ const Home: NextPage = () => {
         <meta name="description" content="Created by Shrikant Kalar" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className="container py-5 px-3">
+        <h1 className="mb-4 text-center">Paisa-Tracker</h1>
         <div className="mb-5">
           <ExpenseForm
             onSubmit={(expense) =>
@@ -47,6 +47,9 @@ const Home: NextPage = () => {
         <ExpenseFilter
           onSelectCategory={(category) => setSelectedCategory(category)}
         />
+        <p className=" text-start fw-light lh-1">
+          Table below is horizontally scrollable on very small devices.
+        </p>
         <ExpenseList
           expenses={
             selectedCategory
