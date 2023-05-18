@@ -47,9 +47,6 @@ const Home: NextPage = () => {
         <ExpenseFilter
           onSelectCategory={(category) => setSelectedCategory(category)}
         />
-        <p className=" text-start fw-light lh-1">
-          Table below is horizontally scrollable on very small devices.
-        </p>
         <ExpenseList
           expenses={
             selectedCategory
